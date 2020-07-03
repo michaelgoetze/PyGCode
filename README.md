@@ -82,6 +82,6 @@ PyGcode.py expects one positional argument that contains the input .gcode-file (
 | short | long | function |
 |--|--|--|
 | `-h` | `--help` | show the help information |
-| `-o` | `--override` | override the original file (do not create a backup of the input file if in combination with -ext) |
-| `-ext` | `--extension` | replace .gcode extension by this extension (e.g. _py.gcode) |
+| `-o` | <nobr>`--override`</nobr> | override the original file (do not create a backup<br> of the input file if in combination with -ext) |
+| `-ext` | <nobr>`--extension`</nobr> | replace .gcode extension by this extension <br>(e.g. _py.gcode) |
 | `-p` | `--pattern` | exchange the `;Python` pattern by a different string |
