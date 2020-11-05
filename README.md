@@ -15,11 +15,12 @@ You will need python 3 to run this script ([Python 3 Download](https://www.pytho
 e.g.
 `python PyGcode.py -ext _py.gcode -o benchy.gcode`
 
-In PrusaSlicer the postprocessing script can be provided as a bat file where the created gcode is passed as an argument. In Windows you can use the batch file `RunPyGcode.bat` that contains the python command.
+In PrusaSlicer the postprocessing script can be provided as a bat file where the created gcode is passed as an argument. In Windows you can use the batch file `RunPyGcode.bat` that contains the command.
 
-`python %~dp0\PyGcode.py -ext _py.gcode -o %1`
+    python "%~dp0\PyGcode.py" -ext _py.gcode -o %1`
+    pause`
 
-where `%~dp0` is the path of the PyGcode.py file and  `%1` is the path to the exported g-code file.
+where `%~dp0` is the relative path to the PyGcode.py file and  `%1` is the path to the exported g-code file.
 
 ## Including python code
 
@@ -41,9 +42,9 @@ A single line code starts with the following pattern:
 
     ;Python:
 
-followed by a python command
+followed by a python command ('<(' and ')>' replace square brackets)
 
-	;Python: temperatures = [a for a in range(195, 220, 5)]
+	;Python: temperatures = <(a for a in range(195, 220, 5))>
 
 ### Multi-line code block
 

@@ -160,7 +160,13 @@ with open(tmp.name,'w') as fout:
         for s in fin:
             if s.lstrip().startswith(pattern + ':'):
                 fout.write("''')\n")
-                fout.write(s.replace(pattern+':','').strip()+'\n') 
+                line = s.replace(pattern+':','').strip() +'\n'
+                
+                line = re.sub('<~\(', '{', line)
+                line = re.sub('\)~>', '}', line)
+                line = re.sub('<\(', '[', line)
+                line = re.sub('\)>', ']', line)
+                fout.write(line) 
                 fout.write("print('''")              
             elif s.lstrip().startswith(pattern+'<'):
                 fout.write("''')\n")
